@@ -1,210 +1,43 @@
-[![Cosmic JS Logo](https://cosmicjs.com/images/marketing/logo-w-brand.jpg)](https://cosmicjs.com/)<br><br>
-This is the Official Cosmic JS JavaScript Client which allows you to easily create, read, update and delete content from your Cosmic JS Buckets.  Includes `cosmicjs.browser.min.js` for easy integration in the browser.
+# Welcome to Revel
 
-### Getting started
-Go to [https://cosmicjs.com](https://cosmicjs.com), create an account and set up a Bucket.
+A high-productivity web framework for the [Go language](http://www.golang.org/).
 
-#### Quick Start
-1. Install Cosmic JS
-```
-yarn add cosmicjs
-```
 
-2. Input your bucket/object slugs in index.html like as follows:
-```
-var config = {
-  bucket: {
-    slug: 'your-bucket-slug'
-  },
-  object: {
-    slug: 'your-object-slug'
-  }
-};
-```
+### Start the web server:
 
-3. Let get server awake
-```
-go run server.go
-```
+   revel run myapp
 
-#### Usage
-##### Include and Config
-```javascript
-import Cosmic from 'cosmicjs';
+### Go to http://localhost:9000/ and you'll see:
 
-/* Configure
-================================ */
-const config = {
-  bucket: {
-    slug: 'your-bucket-slug',
-    read_key: '', // add read_key if added to your Cosmic JS Bucket settings
-    write_key: '' // add write_key if added to your Cosmic JS Bucket settings
-  }
-};
-```
-##### Get Bucket
-```javascript
-Cosmic.getBucket(config, (error, response) => {
-  // console.log(response);
-});
-```
-##### Get Objects
-```javascript
-Cosmic.getObjects(config, (error, response) => {
-  // console.log(response);
-});
-```
-##### Get Objects by Type
-```javascript
-const params = {
-  type_slug: 'posts',
-  limit: 5,
-  skip: 0,
-  sort: '-created_at', // optional, if sort is needed. (use one option from 'created_at,-created_at,modified_at,-modified_at,random')
-  locale: 'en' // optional, if localization set on Objects
-  status: 'all' // optional, if need to get draft Objects
-};
-Cosmic.getObjectsByType(config, params, (error, response) => {
-  // console.log(response);
-});
-```
-##### Get Objects by Search
-```javascript
-// Search by Object Metafield
-const params = {
-  type_slug: 'posts',
-  metafield_key: 'author',
-  metafield_object_slug: 'carson-gibbons',
-  limit: 5,
-  skip: 0,
-  locale: 'en' // optional, if localization set on Objects,
-  status: 'all' // optional, if need to get draft Objects,
-};
-// Search by Metafield Value
-const params = {
-  type_slug: 'posts',
-  metafield_key: 'headline',
-  metafield_value: 'Hello World',
-  limit: 5,
-  skip: 0
-};
-// Search by Metafield Has Value
-const params = {
-  type_slug: 'posts',
-  metafield_key: 'headline',
-  metafield_has_value: 'World',
-  limit: 5,
-  skip: 0
-};
-Cosmic.getObjectsBySearch(config, params, (error, response) => {
-  // console.log(response);
-});
-```
-##### Get Object
-```javascript
-const params = {
-  slug: 'object-slug'
-}
-Cosmic.getObject(config, params, (error, response) => {
-  // console.log(response);
-});
-```
-##### Add Object
-```javascript
-const params = {
-  write_key: config.bucket.write_key,
-  type_slug: 'pages',
-  title: 'Test Title',
-  content: 'Test Content'
-};
-Cosmic.addObject(config, params, (error, response) => {
-  // console.log(response);
-});
-```
-##### Edit Object
-```javascript
-const params = {
-  write_key: config.bucket.write_key,
-  slug: 'test-title',
-  type_slug: 'pages',
-  title: 'New Title',
-  content: 'New Content'
-};
-Cosmic.editObject(config, params, (error, response) => {
-  // console.log(response);
-});
-```
-##### Delete Object
-```javascript
-const params = {
-  write_key: config.bucket.write_key,
-  slug: 'test-title'
-};
-Cosmic.deleteObject(config, params, (error, response) => {
-  // console.log(response);
-});
-```
-##### Get Media
-```javascript
-Cosmic.getMedia(config, (error, response) => {
-  // console.log(response);
-});
-```
-##### Add Media
-```javascript
-const params = {
-  media: FILE_DATA,
-  folder: 'your-folder-slug'
-}
-Cosmic.addMedia(config, params, (error, response) => {
-  // console.log(res)
-})
-```
-##### Delete Media
-```javascript
-const params = {
-  media_id: MEDIA_ID,
-  write_key: config.bucket.write_key,
-}
-Cosmic.deleteMedia(config, params, (error, response) => {
-  // console.log(res)
-})
-```
-#### Easy Browser Example
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Cosmic JS Easy Browser Example</title>
-</head>
-<body>
-<h1 id="title">If you see this, something isn't working...</h1>
-<div id="content"></div>
-<div id="metafields"></div>
-<script src="cosmicjs.browser.min.js"></script>
-<script>
-var config = {
-  bucket: {
-    slug: 'your-bucket-slug'
-  },
-  object: {
-    slug: 'home'
-  }
-};
-Cosmic.getObject(config, config.object, (err, res) => {
-  var object = res.object;
-  document.getElementById('title').innerHTML = object.title;
-  document.getElementById('content').innerHTML = object.content;
-  var metafields = object.metafields;
-  var items = '';
-  metafields.forEach(function(metafield){
-    items += '<h2>' + metafield.title + '</h2>';
-    items += '<img width="300" src="' + metafield.url + '"/>';
-    items += '<br><br>';
-  });
-  document.getElementById('metafields').innerHTML = items;
-});
-</script>
-</body>
-</html>
-```
+    "It works"
+
+## Code Layout
+
+The directory structure of a generated Revel application:
+
+    conf/             Configuration directory
+        app.conf      Main app configuration file
+        routes        Routes definition file
+
+    app/              App sources
+        init.go       Interceptor registration
+        controllers/  App controllers go here
+        views/        Templates directory
+
+    messages/         Message files
+
+    public/           Public static assets
+        css/          CSS files
+        js/           Javascript files
+        images/       Image files
+
+    tests/            Test suites
+
+
+## Help
+
+* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).
+* The [Revel guides](http://revel.github.io/manual/index.html).
+* The [Revel sample apps](http://revel.github.io/examples/index.html).
+* The [API documentation](https://godoc.org/github.com/revel/revel).
+
