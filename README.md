@@ -1,19 +1,17 @@
-# Welcome to Revel
+## Ready to start
+```
+   yarn install
+```
 
-A high-productivity web framework for the [Go language](http://www.golang.org/).
+## Build Localhost
 
-
-### Start the web server:
-
-   revel run myapp
-
-### Go to http://localhost:9000/ and you'll see:
-
-    "It works"
+```
+   revel run blog
+```
 
 ## Code Layout
 
-The directory structure of a generated Revel application:
+The directory structure:
 
     conf/             Configuration directory
         app.conf      Main app configuration file
@@ -32,12 +30,4 @@ The directory structure of a generated Revel application:
         images/       Image files
 
     tests/            Test suites
-
-
-## Help
-
-* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).
-* The [Revel guides](http://revel.github.io/manual/index.html).
-* The [Revel sample apps](http://revel.github.io/examples/index.html).
-* The [API documentation](https://godoc.org/github.com/revel/revel).
 
