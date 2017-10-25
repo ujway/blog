@@ -1,37 +1,35 @@
 {
-  "name": "cosmicjs",
-  "version": "2.4.20",
-  "description": "The official client module for Cosmic JS. This module helps you easily add dynamic content to your website or application.",
+  "name": "blog",
+  "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/ujway/blog.git",
+  "author": "ujway <satoyu313@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "cosmicjs": "^2.4.20",
-    "es6-promise": "^3.0.2",
-    "form-data": "^2.1.4",
-    "isomorphic-fetch": "^2.2.0",
-    "lodash": "^4.17.4",
-    "superagent": "^3.5.2"
+    "react": "15.0.0",
+    "react-dom": "15.0.0",
+    "semantic-ui": "^2.2.13",
+    "semantic-ui-react": "^0.74.2"
   },
   "devDependencies": {
-    "browserify": "^14.4.0",
-    "uglify-js": "^3.0.28"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.1"
   },
   "scripts": {
-    "browserify": "browserify index-browser.js | uglifyjs > cosmicjs.browser.min.js"
+    "build:webpack": "webpack --config webpack.config.js",
+    "bulid:cosmicjs": "browserify public/src/js/index-browser.js | uglifyjs > public/dist/js/cosmicjs.browser.min.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cosmicjs/cosmicjs-node.git"
-  },
-  "keywords": [
-    "cms",
-    "node",
-    "content",
-    "api"
-  ],
-  "author": "Tony Spiro <tspiro@tonyspiro.com> (http://tonyspiro.com/)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cosmicjs/cosmicjs-node/issues"
-  },
-  "homepage": "https://github.com/cosmicjs/cosmicjs-node#readme"
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": "15.0.0"
+  }
 }
