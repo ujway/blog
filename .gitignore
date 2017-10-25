@@ -2,6 +2,7 @@
 .idea/
 node_modules
 *.log
+*.bak
 tests
 semantic/
 test-results/
