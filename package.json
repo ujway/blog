@@ -6,8 +6,19 @@
   "author": "ujway <satoyu313@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "15.0.0",
-    "react-dom": "15.0.0"
+    "grommet": "^2.0.0-alpha.0",
+    "material-ui": "^0.19.4",
+    "material-ui-responsive-drawer": "^1.19.1",
+    "prop-types": "15.6",
+    "react": "^16.0.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.0.0",
+    "react-grid-system": "^3.1.0",
+    "react-redux": "^5.0.6",
+    "react-tap-event-plugin": "^3.0.2",
+    "redux": "^3.7.2",
+    "redux-responsive": "^4.3.4",
+    "styled-components": "^2.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -24,11 +35,11 @@
     "webpack-dev-server": "^2.9.1"
   },
   "scripts": {
-    "build:webpack": "webpack --config webpack.config.js",
-    "bulid:cosmicjs": "browserify public/src/js/index-browser.js | uglifyjs > public/dist/js/cosmicjs.browser.min.js"
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js",
+    "start": "revel run blog",
+    "cosmicjs": "browserify public/src/js/index-browser.js | uglifyjs > public/dist/js/cosmicjs.browser.min.js"
   },
   "optionalDependencies": {},
-  "peerDependencies": {
-    "react": "15.0.0"
-  }
+  "peerDependencies": {}
 }

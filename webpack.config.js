@@ -9,7 +9,7 @@ module.exports = [
   {
     context: path.join(__dirname, 'public/src/js'),
     entry: {
-      bundle: './index.js'
+      bundle: './Theme.js'
     },
     output: {
       path: path.join(__dirname, 'public/dist/js'),
