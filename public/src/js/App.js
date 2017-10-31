@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import myTheme from './Theme'
+import Loader from './Loader';
 import Sidebar from './Sidebar';
 import Body from "./Body";
-import Loader from "./Loader";
 
 class App extends Component {
     constructor() {

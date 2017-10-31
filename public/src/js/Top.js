@@ -14,7 +14,7 @@ const bodyContainerStyle={
     backgroundSize: 'cover'
 };
 
-export default class Body extends Component {
+export default class Top extends Component {
     render() {
         return (
             <BodyContainer width={drawerWidth} style={bodyContainerStyle}>
