@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { BodyContainer } from 'material-ui-responsive-drawer'
 import config from './Config'
-import Avatar from 'material-ui/Avatar';
+import { white } from "material-ui/styles/colors";
 
 const drawerWidth=config.drawer_width;
 const bodyContainerStyle={
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'YuGothic, Roboto, sans-serif'
+    fontFamily: 'YuGothic, Roboto, sans-serif',
+    letterSpacing: '0.2em',
+    backgroundImage: "url('/public/img/top1.jpg')",
+    backgroundSize: 'cover'
 };
 
 export default class Body extends Component {
@@ -16,15 +19,8 @@ export default class Body extends Component {
         return (
             <BodyContainer width={drawerWidth} style={bodyContainerStyle}>
                 <div style={{textAlign: 'center'}}>
-                    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <Avatar
-                            src='/public/img/my-picture.jpg'
-                            size={70}
-                            style={{marginRight: '10px'}}
-                        />
-                        <h1>Yuji Sato</h1>
-                    </div>
-                    <h2>Web Developer / technical Director</h2>
+                    <h1 style={{fontSize: '3em', fontWeight: 'normal', color: white}}>Yuji Sato</h1>
+                    <h2 style={{fontSize: '1.5em', fontWeight: 'normal', color: white}}>Web Developer / technical Director</h2>
                 </div>
             </BodyContainer>
         );
